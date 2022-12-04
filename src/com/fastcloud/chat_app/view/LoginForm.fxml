@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="393.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fastcloud.chat_app.controller.LoginFormController">
+   <children>
+      <MaterialDesignIconView fill="#3498db" glyphName="ACCOUNT" layoutX="92.0" layoutY="137.0" size="130" />
+      <Label layoutX="84.0" layoutY="153.0" text="ENTER USER NAME" textFill="#3498db">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField layoutX="69.0" layoutY="184.0" prefHeight="25.0" prefWidth="177.0" promptText=" User Name">
+         <font>
+            <Font size="13.0" />
+         </font></TextField>
+      <JFXButton buttonType="RAISED" layoutX="66.0" layoutY="228.0" prefHeight="25.0" prefWidth="177.0" style="-fx-background-color: #3498db;" text="START CHAT" textFill="#f2ecec">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+   </children>
+</AnchorPane>
