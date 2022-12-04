@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.fastcloud.chat_app.controller.ServerFormController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="481.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fastcloud.chat_app.controller.ServerFormController">
+   <children>
+      <ImageView fitHeight="483.0" fitWidth="461.0" pickOnBounds="true">
+         <image>
+            <Image url="@asserts/background.jpg" />
+         </image>
+      </ImageView>
+      <ScrollPane layoutY="51.0" prefHeight="388.0" prefWidth="461.0" />
+      <AnchorPane layoutX="4.0" layoutY="7.0" prefHeight="35.0" prefWidth="453.0" style="-fx-background-color: #3498db; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="21.0" layoutY="7.0" text="Server" textFill="#f5f3f3">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <MaterialDesignIconView fill="#f5f4f4" glyphName="POWER" layoutX="414.0" layoutY="26.0" onMouseClicked="#shutdownServerOnClicked" size="25">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </MaterialDesignIconView>
+         </children>
+      </AnchorPane>
+      <TextField fx:id="txtMessageBox" layoutX="4.0" layoutY="442.0" prefHeight="35.0" prefWidth="416.0" style="-fx-background-radius: 20;" />
+      <MaterialDesignIconView fill="#f5f4f4" glyphName="SEND" layoutX="422.0" layoutY="468.0" size="25" />
+   </children>
 </AnchorPane>
