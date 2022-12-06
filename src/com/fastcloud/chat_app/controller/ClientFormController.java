@@ -42,6 +42,9 @@ public class ClientFormController {
 
                 client = new Client(new Socket("localhost",5000),name,vBoxMessage);
                 System.out.println("Connected to server !");
+                //====================================
+                client.listenForMessage(vBoxMessage,name);
+                client.sendMessage(clientName + " has joined to the chat !",vBoxMessage,"SERVER");
             }catch (IOException e){
                 e.printStackTrace();
             }

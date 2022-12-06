@@ -1,5 +1,6 @@
 package com.fastcloud.chat_app.util;
 
+import com.fastcloud.chat_app.controller.ClientFormController;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 
@@ -30,8 +31,33 @@ public class Client {
         }
     }
 
+    public  void sendMessage(String msgToSend, VBox vBox, String sender ){
+        this.sendersVBox = vBox;
+        new Thread(()->{
+            try{
+                this.bufferedWriter.write(userName);
+                this.bufferedWriter.newLine();
+                this.bufferedWriter.flush();
+                if(msgToSend.contains("left")){
+                    this.bufferedWriter.write(msgToSend);
+                }else if(msgToSend.contains("has joined")){
+                    this.bufferedWriter.write(msgToSend);
+                }else {
+                    this.bufferedWriter.flush();
+                    this.bufferedWriter.write(userName+" : "+msgToSend);
+                }
+                this.bufferedWriter.newLine();
+                this.bufferedWriter.flush();
 
-    public void listenForMessage(VBox vBox, String userName){
+            }catch (Exception e){
+                e.printStackTrace();
+                closeAll(this.socket, this.bufferedReader, this.bufferedWriter);
+            }
+        }).start();
+    }
+
+
+    public   void listenForMessage(VBox vBox, String userName){
         new Thread(()->{
             String msgFromChat = null;
             String imgFromChat = null;
@@ -47,8 +73,10 @@ public class Client {
                         if(strings.length==2 || msgFromChat.contains("has joined") || msgFromChat.contains("left")){
                             if(sendersName.equals("sender")){
                                 //client from controller ->display ->  static method ride side
+                                ClientFormController.displayMessageOnRight(msgFromChat.split(":")[1],vBox );
                             }else{
                                 //client from controller ->display -> left side
+                                ClientFormController.displayMessageOnLeft(msgFromChat,vBox);
                             }
 
                         }
