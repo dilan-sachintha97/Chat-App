@@ -53,7 +53,7 @@ public class ClientFormController {
     }
 
     public static void displayMessageOnRight(String messageToSend, VBox vBox){
-            if( !messageToSend.isEmpty()){
+            if(!messageToSend.isEmpty()){
                 HBox hBox = new HBox();
                 hBox.setAlignment(Pos.CENTER_RIGHT);
                 hBox.setPadding(new Insets(5,5,5,10));
@@ -67,5 +67,22 @@ public class ClientFormController {
                     vBox.getChildren().add(hBox);
                 });
             }
+    }
+
+    public static void displayMessageOnLeft(String messageReceived, VBox vBox){
+        if(!messageReceived.isEmpty()){
+            HBox hBox = new HBox();
+            hBox.setAlignment(Pos.CENTER_LEFT);
+            hBox.setPadding(new Insets(5,5,5,10));
+            Text msgText = new Text(messageReceived);
+            TextFlow textFlow = new TextFlow(msgText);
+            textFlow.setStyle("-fx-border-color: #2ecc71; -fx-background-radius: 10, 10, 10, 0 ");
+            textFlow.setPadding(new Insets(5,10,5,10));
+            msgText.setFill(Color.WHITE);
+            hBox.getChildren().add(textFlow);
+            Platform.runLater(()->{
+                vBox.getChildren().add(hBox);
+            });
+        }
     }
 }
