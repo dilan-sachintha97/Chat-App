@@ -14,6 +14,7 @@ public class ServerFormController {
             try{
                 ServerSocket serverSocket = new ServerSocket(5000);
                 System.out.println("Server Started !");
+                serverSocket.accept();
             }catch (IOException e){
                 e.printStackTrace();
             }

@@ -8,6 +8,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="483.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fastcloud.chat_app.controller.ClientFormController">
@@ -17,7 +18,10 @@
             <Image url="@asserts/background.jpg" />
          </image>
       </ImageView>
-      <ScrollPane layoutY="51.0" prefHeight="388.0" prefWidth="460.0" />
+      <ScrollPane layoutY="51.0" prefHeight="388.0" prefWidth="460.0">
+         <content>
+            <VBox fx:id="vBoxMessage" prefHeight="373.0" prefWidth="459.0" />
+         </content></ScrollPane>
       <AnchorPane layoutX="4.0" layoutY="7.0" prefHeight="35.0" prefWidth="453.0" style="-fx-background-color: #3498db; -fx-background-radius: 20;">
          <children>
             <Label fx:id="lblClientName" layoutX="21.0" layoutY="7.0" text="Client" textFill="#f5f3f3">
@@ -37,5 +41,6 @@
       <MaterialDesignIconView glyphName="CAMERA" layoutX="378.0" layoutY="468.0" size="25" />
       <MaterialDesignIconView glyphName="ATTACHMENT" layoutX="339.0" layoutY="468.0" size="25" text="" />
       <MaterialDesignIconView glyphName="EMOTICON" layoutX="13.0" layoutY="468.0" size="25" />
+      <VBox prefHeight="200.0" prefWidth="100.0" />
    </children>
 </AnchorPane>
